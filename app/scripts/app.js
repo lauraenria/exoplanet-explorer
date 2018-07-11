@@ -1,10 +1,10 @@
 /*
 Instructions:
-(1) Refactor .forEach below to create a sequence of Promises that always resolves in the same
-    order it was created.
-  (a) Fetch each planet's JSON from the array of URLs in the search results.
-  (b) Call createPlanetThumb on each planet's response data to add it to the page.
-(2) Use developer tools to determine if the planets are being fetched in series or in parallel.
+(1) Get the planet data and add the search header.
+(2) Create the first thumbnail with createPlanetThumb(data)
+(3) Handle errors!
+  (a) Pass 'unknown' to the search header.
+  (b) console.log the error.
  */
 
 // Inline configuration for jshint below. Prevents `gulp jshint` from failing with quiz starter code.
@@ -36,7 +36,7 @@ Instructions:
   }
 
   /**
-   * XHR wrapped in a promise.
+   * XHR wrapped in a promise
    * @param  {String} url - The URL to fetch.
    * @return {Promise}    - A Promise that resolves when the XHR succeeds and fails otherwise.
    */
@@ -60,13 +60,10 @@ Instructions:
   window.addEventListener('WebComponentsReady', function() {
     home = document.querySelector('section[data-route="home"]');
     /*
-    Refactor this code!
+    Uncomment the next line and start here when you're ready to add the first thumbnail!
+
+    Your code goes here!
      */
-    getJSON('../data/earth-like-results.json')
-    .then(function(response) {
-      response.results.forEach(function(url) {
-        getJSON(url).then(createPlanetThumb);
-      });
-    });
+    // getJSON('../data/earth-like-results.json')
   });
 })(document);
